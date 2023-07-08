@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 01:45 PM
+-- Generation Time: Jul 08, 2023 at 07:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -47,6 +47,13 @@ CREATE TABLE `kompetisi` (
   `id` int(10) NOT NULL,
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kompetisi`
+--
+
+INSERT INTO `kompetisi` (`id`, `nama`) VALUES
+(1, 'ITTS Komputer');
 
 -- --------------------------------------------------------
 
@@ -124,9 +131,18 @@ CREATE TABLE `peserta` (
   `id` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-  `telp` int(14) NOT NULL,
-  `tim` int(11) DEFAULT NULL
+  `telp` int(15) NOT NULL,
+  `tim` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `peserta`
+--
+
+INSERT INTO `peserta` (`id`, `nama`, `alamat`, `telp`, `tim`) VALUES
+(12, 'Muhammad Faqih Amirullah', 'Simo Gunung Barat Tol 3', 1231, 'Harimau'),
+(13, 'Dewa Andika', 'sima ganang tal 2', 11, 'Harimau'),
+(14, 'Krisna D', 'Nagel', 411231, 'Harimau');
 
 -- --------------------------------------------------------
 
@@ -144,7 +160,7 @@ CREATE TABLE `tim` (
 --
 
 INSERT INTO `tim` (`id`, `nama`) VALUES
-(1, 'test');
+(1, 'Halo');
 
 -- --------------------------------------------------------
 
@@ -169,7 +185,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Muhammad Faqih', 'ajldaadjl', NULL, '$2y$10$aOVb.LTxQ2zJfE5fQ0buY.KYg/Wlk6CAwJMaKYrLcfKjmkWmHbPhe', NULL, '2023-05-29 10:40:37', '2023-05-29 10:40:37'),
-(2, 'Muhammad Faqih', 'freemiumlemper300@gmail.com', NULL, '$2y$10$6.wl9NhyDvobHwGKZE4J6uooPJ.gcmJiF5HgbSwClhbqh4kRco/CS', NULL, '2023-05-29 10:40:48', '2023-05-29 10:40:48');
+(2, 'Muhammad Faqih', 'freemiumlemper300@gmail.com', NULL, '$2y$10$6.wl9NhyDvobHwGKZE4J6uooPJ.gcmJiF5HgbSwClhbqh4kRco/CS', NULL, '2023-05-29 10:40:48', '2023-05-29 10:40:48'),
+(3, 'Nelly', 'r@email.com', NULL, '$2y$10$xI7uy/AFeBzcn.0eLQxrWuSfWd6BNmpR/4Ue2/ZjnsS9e737WldJq', NULL, '2023-05-30 18:15:16', '2023-05-30 18:15:16');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +258,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kompetisi`
 --
 ALTER TABLE `kompetisi`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -259,13 +276,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
