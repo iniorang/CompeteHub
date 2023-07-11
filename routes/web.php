@@ -21,8 +21,6 @@ use App\Http\Controllers\TimController;
 |
 */
 
-
-
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');

@@ -1,21 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 <body>
-    <div class="container my-5">
-        <ul class="nav nav-pills justify-content-center mt-3" id="Food-Tab">
-            <li class="nav-item">
-                <a href="#Peserta" class="nav-link active" data-bs-toggle="tab">Peserta</a>
-            </li>
-            <li class="nav-item">
-                <a href="#Kompetisi" class="nav-link" data-bs-toggle="tab">Kompetisi</a>
-            </li>
-            <li class="nav-item">
-                <a href="#Tim" class="nav-link" data-bs-toggle="tab">Tim</a>
-            </li>
-        </ul>
+    <div class="container db-tab ">
         <div class="tab-content mt-2">
-            <div class="tab-pane active" id="Peserta">
+            <div class="tab-pane active" id="peserta">
                 <div class="container">
                     <a href="/peserta/tambah"><button class="btn btn-dark my-3">Buat Peserta Baru</button></a>
                     <table class="table table-light table-stripped-columns" style="border: 1; width: 100%; border-spacing: 1; padding: 1">
@@ -59,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="Kompetisi">
+            <div class="tab-pane" id="kompetisi">
                 <div class="container">
                     <a href="/kompetisi/tambah"><button class="btn btn-dark my-3">Buat Kompetisi Baru</button></a>
                     <table class="table table-light table-stripped-columns" style="border: 1; width: 100%; border-spacing: 1; padding: 1">
@@ -93,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="Tim">
+            <div class="tab-pane" id="tim">
                 <div class="container">
                     <a href="/kompetisi/tambah"><button class="btn btn-dark my-3">Buat Kompetisi Baru</button></a>
                     <table class="table table-light table-stripped-columns" style="border: 1; width: 100%; border-spacing: 1; padding: 1">
