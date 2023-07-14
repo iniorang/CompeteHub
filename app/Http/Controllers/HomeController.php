@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Manager\SubscriptionManager;
+use Illuminate\Support\Facades\Request;
+
+/**
+ * Class SubscriptionController
+ * @package App\Http\Controllers
+ */
 
 class HomeController extends Controller
 {
@@ -23,6 +30,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('beranda');
     }
 }

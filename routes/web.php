@@ -7,8 +7,8 @@ use App\Http\Controllers\pesertaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KompetisiController;
 use App\Http\Controllers\TimController;
-
-
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,7 @@ use App\Http\Controllers\TimController;
 */
 
 Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', [AuthController::class,'index']);
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -52,5 +53,3 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 #Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
