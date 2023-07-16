@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KompetisiController;
 use App\Http\Controllers\TimController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -37,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/peserta/edit/{id}', [pesertaController::class, 'edit']);
     Route::post('/peserta/update', [pesertaController::class, 'update']);
     Route::get('/peserta/hapus/{id}', [pesertaController::class, 'hapus']);
-    
+
     // Route::get('/', [KompetisiController::class, 'index']);
     Route::get('/kompetisi/tambah', [KompetisiController::class, 'tambah']);
     Route::post('/kompetisi/store', [KompetisiController::class, 'store']);
@@ -56,12 +57,8 @@ Route::get('beranda', function () {
     return view('beranda');
 })->name('beranda');
 
-Route::get('admin', function () {
-    return view('admin');
-})->name('admin');
+Route::get('admin', [pesertaController::class, 'index'])->name('admin');
 
-
-#Auth::routes();
 Auth::routes();
 
 Route::get('/', function () {
