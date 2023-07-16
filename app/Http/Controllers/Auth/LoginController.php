@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Sanctum\Guard;
 
 class LoginController extends Controller
 {
@@ -33,8 +34,8 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
-        $this->middleware('guest')->except('logout');
+        $this->auth = $auth;
     }
 }
