@@ -52,4 +52,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tim/hapus/{id}', [TimController::class, 'hapus']);
 });
 
+Route::get('beranda', function () {
+    return view('beranda');
+})->name('beranda');
+
+Route::get('admin', function () {
+    return view('admin');
+})->name('admin');
+
+
 #Auth::routes();
+Auth::routes();
+
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('admin');
+    } else {
+        return redirect()->route('beranda');
+    }
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
