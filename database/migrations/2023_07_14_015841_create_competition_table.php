@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('competition', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->text('desk');
+            $table->boolean('teamreq');
+            $table->float('hargadaftar');
+            $table->date('tgldaftar');
+            $table->date('tutupdaftar');
+            $table->date('tglmulai');
+            $table->date('akhiracara');
             $table->timestamps();
         });
     }

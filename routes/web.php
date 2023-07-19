@@ -32,7 +32,6 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::match(['get','post'],'/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/', [pesertaController::class, 'index']);
     Route::get('/peserta/tambah', [pesertaController::class, 'tambah']);
     Route::post('/peserta/store', [pesertaController::class, 'store']);
     Route::get('/peserta/edit/{id}', [pesertaController::class, 'edit']);
@@ -53,20 +52,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tim/hapus/{id}', [TimController::class, 'hapus']);
 });
 
-Route::get('beranda', function () {
-    return view('beranda');
-})->name('beranda');
+// Route::get('beranda', function () {
+//     return view('beranda');
+// })->name('beranda');
 
-Route::get('admin', [pesertaController::class, 'index'])->name('admin');
+// Route::get('admin', [pesertaController::class, 'index'])->name('admin');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->route('admin');
-    } else {
-        return redirect()->route('beranda');
-    }
-});
+// Route::get('/', function () {
+//     if (Auth::check()) {
+//         return redirect()->route('admin');
+//     } else {
+//         return redirect()->route('beranda');
+//     }
+// });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
