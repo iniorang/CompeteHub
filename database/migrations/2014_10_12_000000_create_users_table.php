@@ -17,12 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('notelp');
+            $table->string('notelp')->nullable();
             $table->tinyInteger('type')->default(0);
+            $table->unsignedBigInteger('team_id')->nullable();
             // Jenis User 0.User biasa, 1.admin 2.super admin
             $table->boolean('isActive')->default(0);
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('team_id')->references('id')->on('team')->onDelete('set null');
         });
     }
 

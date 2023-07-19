@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->float('harga');
             $table->boolean('verified');
+            $table->id('user');
             $table->timestamps();
         });
     }
