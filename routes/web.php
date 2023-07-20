@@ -4,8 +4,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pesertaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KompetisiController;
 use App\Http\Controllers\TimController;
+
 
 
 /*
@@ -21,7 +23,7 @@ use App\Http\Controllers\TimController;
 
 Auth::routes();
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [AuthController::class,'index']);
+    Route::get('/', [AuthController::class,'index'])->name('beranda');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -29,20 +31,21 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('home');
-    Route::get('/', [AuthController::class,'index']);
-    Route::match(['get','post'],'/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 Route::middleware(['auth', 'user-access:staff,admin'])->group(function () {
     Route::match(['get','post'],'/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/admin/dashboard', [HomeController::class, 'admindashboard'])->name('admin.home');
+    Route::get('/admin/dashboard', [HomeController::class, 'admindashboard'])->name('admin');
     //Route::get('/', [AuthController::class,'index']);
 });
 
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-
-});
 // Route::group(['middleware' => 'auth'], function () {
 //     Route::middleware(['auth','role:0,1,2'])->group(function (){
 //     });
