@@ -51,19 +51,7 @@ class User extends Authenticatable
     protected function type(): Attribute
     {
         return new Attribute(
-            get: fn ($value) =>  ["user", "admin", "manager"][$value],
+            get: fn ($value) =>  ["user", "staff", "admin"][$value],
         );
     }
-    
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
-    public function hasAnyRole($roles)
-    {
-        return $this->roles()->whereIn('name', $roles)->exists();
-    }
-
 }

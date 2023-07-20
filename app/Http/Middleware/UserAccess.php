@@ -14,15 +14,13 @@ class UserAccess
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $Roles): Response
+    public function handle(Request $request, Closure $next, $userType): Response
 
     {
-        $user = $request->user();
-
-        if ($user && $user->hasAnyRole($Roles)) {
+        if(auth()->user()->type == $userType){
             return $next($request);
         }
-    
+
         abort(403, 'Unauthorized');
     }
 }
