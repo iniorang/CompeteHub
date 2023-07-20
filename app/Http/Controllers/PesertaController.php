@@ -11,8 +11,8 @@ class PesertaController extends Controller
     {
         $peserta = DB::table('peserta')->paginate(10);
         $kompetisi = DB::table('kompetisi')->paginate(10);
-        $tim = DB::table('tim')->paginate(10);
-        return view('admin',compact('kompetisi', 'peserta', 'tim') );
+        $tim = DB::table('team')->paginate(10);
+        return view('admin',compact('kompetisi', 'peserta', 'team') );
     }
 
     public function tambah(){
@@ -23,8 +23,9 @@ class PesertaController extends Controller
         DB::table('peserta')->insert([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
-            'telp' => $request->telp,
-            'tim' => $request->tim
+            'notelp' => $request->notelp,
+            'email' => $request->email,
+            'password' => $request->password
         ]);
         return redirect('/');
     }
@@ -36,8 +37,9 @@ class PesertaController extends Controller
         DB::table('peserta')->where('id',$request->id)->update([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
-            'telp' => $request->telp,
-            'tim' => $request->tim
+            'notelp' => $request->notelp,
+            'email' => $request->email,
+            'password' => $request->password
         ]);
         return redirect('/');
     }

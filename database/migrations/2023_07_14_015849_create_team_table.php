@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->text('desk');
-            $table->id('head');
-            $table->unsignedBigInteger('user_id')->nullable();
+            //$table->id('head');
+            //$table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

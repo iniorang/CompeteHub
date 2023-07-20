@@ -19,6 +19,7 @@ use App\Http\Controllers\TimController;
 |
 */
 
+Auth::routes();
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [AuthController::class,'index']);
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::middleware(['auth', 'role:1,2'])->group(function () {
         //Route untuk admin;
+        Route::get('/admin',[pesertaController::class,'index']);
         Route::get('/peserta/tambah', [pesertaController::class, 'tambah']);
         Route::post('/peserta/store', [pesertaController::class, 'store']);
         Route::get('/peserta/edit/{id}', [pesertaController::class, 'edit']);
@@ -65,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::middleware(['auth', 'role:2'])->group(function () {
         // Routes untuk SuperAdmin
+        Route::get('/admin',[pesertaController::class,'index']);
     });
 });
 
@@ -76,7 +79,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 // Route::get('admin', [pesertaController::class, 'index'])->name('admin');
 
-// Auth::routes();
 
 // Route::get('/', function () {
 //     if (Auth::check()) {

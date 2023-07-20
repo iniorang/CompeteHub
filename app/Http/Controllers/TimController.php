@@ -12,23 +12,24 @@ class TimController extends Controller
     }
 
     public function store(Request $request){
-        DB::table('tim')->insert([
+        DB::table('team')->insert([
             'nama' => $request->nama,
         ]);
         return redirect('/');
     }
     public function edit($id){
-        $tim = DB::table('tim')->where('id', $id)->get();
-        return view('editTim',['tim'=>$tim]);
+        $tim = DB::table('team')->where('id', $id)->get();
+        return view('editTim',['team'=>$tim]);
     }
     public function update(Request $request){
-        DB::table('tim')->where('id',$request->id)->update([
-            'nama' => $request->nama
+        DB::table('team')->where('id',$request->id)->update([
+            'nama' => $request->nama,
+            'desk' => $request->desk,
         ]);
         return redirect('/');
     }
     public function hapus($id){
-        DB::table('tim')->where('id',$id)->delete();
+        DB::table('team')->where('id',$id)->delete();
         return redirect('/');
     }
 }

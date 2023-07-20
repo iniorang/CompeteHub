@@ -4,6 +4,11 @@
 <body>
     <div class="container db-tab ">
         <div class="tab-content mt-2">
+            <div class="tab-pane active" id="overview">
+            <div class="container">
+                
+            </div>
+        </div>
             <div class="tab-pane active" id="peserta">
                 <div class="container">
                     <a href="/peserta/tambah"><button class="btn btn-dark my-3">Buat Peserta Baru</button></a>
