@@ -9,10 +9,10 @@ class PesertaController extends Controller
 {
     public function index()
     {
-        $peserta = DB::table('peserta')->paginate(10);
-        $kompetisi = DB::table('kompetisi')->paginate(10);
+        $peserta = DB::table('users')->paginate(10);
+        $kompetisi = DB::table('competition')->paginate(10);
         $tim = DB::table('team')->paginate(10);
-        return view('admin',compact('kompetisi', 'peserta', 'team') );
+        return view('admin',compact('kompetisi', 'peserta', 'tim') );
     }
 
     public function tambah(){

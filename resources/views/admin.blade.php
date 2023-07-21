@@ -6,7 +6,7 @@
         <div class="tab-content mt-2">
             <div class="tab-pane active" id="overview">
             <div class="container">
-                
+
             </div>
         </div>
             <div class="tab-pane active" id="peserta">
@@ -14,7 +14,7 @@
                     <a href="/peserta/tambah"><button class="btn btn-dark my-3">Buat Peserta Baru</button></a>
                     <table class="table table-light table-stripped-columns" style="border: 1; width: 100%; border-spacing: 1; padding: 1">
                         <tr>
-                            <th style="width: 5%">No.</th>
+                            <th style="5%">No.</th>
                             <th style="25%">Nama</th>
                             <th style="10%">Alamat</th>
                             <th style="10%">Nomor Telepon</th>
@@ -29,8 +29,8 @@
                                 <td><?= $no ?></td>
                                 <td><?= $p->nama ?></td>
                                 <td><?= $p->alamat ?></td>
-                                <td><?= $p->telp ?></td>
-                                <td><?= $p->tim ?></td>
+                                <td><?= $p->notelp ?></td>
+                                <td><?= $p->team_id ?></td>
                                 <td>
                                     <a href="/peserta/edit/<?= $p->id ?>">
                                         <button type="button" class="btn btn-dark">Edit</button>
@@ -89,7 +89,7 @@
             </div>
             <div class="tab-pane" id="tim">
                 <div class="container">
-                    <a href="/kompetisi/tambah"><button class="btn btn-dark my-3">Buat Kompetisi Baru</button></a>
+                    <a href="/tim/tambah"><button class="btn btn-dark my-3">Buat Tim Baru</button></a>
                     <table class="table table-light table-stripped-columns" style="border: 1; width: 100%; border-spacing: 1; padding: 1">
                         <tr>
                             <th style="width: 5%">No.</th>
