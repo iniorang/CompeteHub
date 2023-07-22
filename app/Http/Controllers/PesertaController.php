@@ -31,7 +31,7 @@ class PesertaController extends Controller
     }
     public function edit($id){
         $peserta = DB::table('peserta')->where('id', $id)->get();
-        return view('editPeserta',['peserta'=>$peserta]);
+        return view('crud.profile',['peserta'=>$peserta]);
     }
     public function update(Request $request){
         DB::table('peserta')->where('id',$request->id)->update([
